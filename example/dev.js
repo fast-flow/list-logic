@@ -9,12 +9,3 @@ var render = ReactDOM.render
         render(<Demo />, node)
     })
 })(document.getElementById('example__basic'))
-
-// custom-style
-;(function (node) {
-    if (!node) {return}
-    require(['./custom-style.demo.js'], function (Demo) {
-        Demo = Demo.default || Demo
-        render(<Demo />, node)
-    })
-})(document.getElementById('example__custom-style'))

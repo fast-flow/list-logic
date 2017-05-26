@@ -1,16 +1,13 @@
 # Basic
 
-## Navigation
-
-1. [custom-style](./custom-style.md)
 
 ## Basic
 
 ````demo
 {
-    title: 'basic',
+    title: 'Basic',
     html: '<div id="example__basic" >loading...</div>',
-    desc: 'describe',
+    desc: '配置逻辑生命周期，通过 `search` `changePage` `clearSearch` 触发逻辑。',
     file: './basic.demo.js'
 }
 ````
