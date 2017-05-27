@@ -1,11 +1,11 @@
 var React = require('react')
 var ListLogic = require('list-logic').default
 // import ListLogic from "lsit-logic"
-var List = require('./basic/List.js')
-var Search = require('./basic/Search.js')
-var Paging = require('./basic/Paging.js')
+var List = require('./component/List.js')
+var Search = require('./component/Search.js')
+var Paging = require('./component/Paging.js')
 var ajax = require('./ajax')
-module.exports = React.createClass({
+var Demo = React.createClass({
     getInitialState: function () {
         return {
             searchKeyword: '',
@@ -23,10 +23,12 @@ module.exports = React.createClass({
             },
             getQuery: function () {
                 return {
-                    searchKeyword: self.state.searchKeyword
+                    searchKeyword: self.state.searchKeyword,
+                    page: self.state.page
                 }
             },
-            resetQuery: function () {
+            clearQuery: function () {
+                // 因为某些场景下默认的搜索条件不为空，所以需要 clearQuery。但一般情况下返回空对象即可。
                 return {}
             },
             onFetchStart: function (next) {
@@ -41,7 +43,12 @@ module.exports = React.createClass({
                     query,
                     {
                         done: function (res) {
-                            render(res, query)
+                            if (res.error) {
+                                alert(res.error)
+                            }
+                            else {
+                                render(res, query)
+                            }
                             fetchEnd()
                         }
                     }
@@ -51,6 +58,7 @@ module.exports = React.createClass({
                 self.setState({
                     data: res.data,
                     pageCount: res.pageCount,
+                    // 更新 query
                     searchKeyword: query.searchKeyword,
                     page: query.page
                 })
@@ -84,7 +92,7 @@ module.exports = React.createClass({
                 <List
                     data={self.state.data}
                     lastTimeQuery={self.list.lastTimeQuery}
-                    onClearQuery={self.list.clearQuery}
+                    onClearSearch={self.list.clearSearch}
                 />
             <Paging page={self.state.page} pageCount={self.state.pageCount} onChange={function (e) {
                     self.list.changePage(e)
@@ -93,3 +101,4 @@ module.exports = React.createClass({
         )
     }
 })
+module.exports = Demo

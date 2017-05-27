@@ -2,12 +2,11 @@ var sham = require('shamjs')
 var listData = sham.g(123, function (index) {
     var number = index + 1
     return {
-        id: sham.r.id(),
-        text: number + '-' + sham.r.word()
+        id: number,
+        text: number
     }
 })
-module.exports = function (request, callback) {
-    console.log('ajax:request', request)
+module.exports = function (request, callback, speed) {
     setTimeout(function () {
         callback.done(
             sham.q(listData, {
@@ -18,5 +17,5 @@ module.exports = function (request, callback) {
                 pageSize: 5
             })
         )
-    }, 500)
+    }, speed)
 }

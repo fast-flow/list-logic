@@ -14,12 +14,12 @@ var List = React.createClass({
                     hasQueryParam?
                     (
                         <div>
-                            没有搜索到{self.props.lastTimeQuery.searchKeyword}
-                            <button type="button" onClick={self.props.onClearQuery} >清除搜索条件</button>
+                            Not found: {self.props.lastTimeQuery.searchKeyword}
+                            <button type="button" onClick={self.props.onClearSearch} >clearSearch</button>
                         </div>
                     ):
                     (
-                        <div>暂无数据</div>
+                        <div>Empty</div>
                     )
                 :
                 null

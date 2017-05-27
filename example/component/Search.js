@@ -16,7 +16,7 @@ var Search = React.createClass({
                     }}
                     placeholder={self.props.placeholder}
                  />
-                <button type="submit" >submit</button>
+             <button type="submit" >Search</button>
             </form>
         )
     }
