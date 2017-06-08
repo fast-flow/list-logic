@@ -1,7 +1,7 @@
 {
   "name": "list-logic",
   "main": "lib/index.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Encapsulate list logic code ",
   "repository": "fast-flow/list-logic",
   "homepage": "http://fast-flow.github.io/list-logic",
@@ -14,7 +14,9 @@
     "list-logic",
     "React custom style"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "extend": "^3.0.1"
+  },
   "scripts": {
     "doc": "fis3 release -w -d ./output -r ./ -f config/fis-conf.js",
     "dev": "fis3 release -w -d ./output -r ./ -f config/fis-conf.js",
