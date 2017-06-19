@@ -37,6 +37,11 @@ npm install list-logic --save
         <br>
         <a href="https://github.com/nimojs">NimoChu</a>
       </td>
+      <td align="center">
+        <a href="https://github.com/grifree"><img width="150 height="150" src="https://github.com/grifree.png?s=150" /></a>
+        <br>
+        <a href="https://github.com/grifree">grifree</a>
+      </td>
     <tr>
   <tbody>
 </table>
